@@ -12,7 +12,7 @@ import SupportIcon from './icons/IconSupport.vue'
     <template #icon>
       <DocumentationIcon />
     </template>
-    <template #heading>Documentation</template>
+    <template #heading>Documentación</template>
 
     Vue’s
     <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
@@ -23,7 +23,7 @@ import SupportIcon from './icons/IconSupport.vue'
     <template #icon>
       <ToolingIcon />
     </template>
-    <template #heading>Tooling</template>
+    <template #heading>Herramientas</template>
 
     This project is served and bundled with
     <a href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener">Vite</a>. The
@@ -33,7 +33,7 @@ import SupportIcon from './icons/IconSupport.vue'
     you need to test your components and web pages, check out
     <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a> and
     <a href="https://on.cypress.io/component" target="_blank" rel="noopener"
-      >Cypress Component Testing</a
+      >Cypress Componente para Testing</a
     >.
 
     <br />

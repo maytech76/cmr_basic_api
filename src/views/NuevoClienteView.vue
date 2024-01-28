@@ -1,7 +1,12 @@
 <script setup>
+import axios from 'axios'
 import{FormKit} from '@formkit/vue'
+import {useRouter} from 'vue-router'
 import RouterLink from '../components/UI/RouterLink.vue'
 import Heading from '../components/UI/Heading.vue'
+
+
+const router = useRouter()
 
 defineProps ({
     titulo: {
@@ -10,7 +15,14 @@ defineProps ({
 })
 
 const handleSubmit = (data)=>{
-    console.log(data)
+    axios.post('http://localhost:4000/clientes', data)
+    .then(respuesta =>{
+        console.log(respuesta)
+        //al registrar redirecionamos
+        router.push({name: 'inicio'})
+
+    })
+    .catch(error =>console.log(error))
 }
 </script>
 
@@ -18,7 +30,7 @@ const handleSubmit = (data)=>{
 <template>
   <div>
     <div class="flex justify-end">
-        <RouterLink to="inicio">Listado de Clientes</RouterLink>
+        <RouterLink to="listado-clientes">Listado de Clientes</RouterLink>
     </div>
     <Heading>{{ titulo }}</Heading>
 
@@ -65,7 +77,7 @@ const handleSubmit = (data)=>{
                     label="Teléfono"
                     type="text"
                     name="telefono"
-                    placeholder="Teléfono : XXXX-XXXX-XXXX"
+                    placeholder="Teléfono : XXXX-XXXX-XX"
                     help="Ejemplo: 950-5051-00"
                     validation="*matches:/^[0-9]{3}-[0-9]{4}-[0-9]{2}$/"
                     :validation-messages="{matches: 'Ingrese numero respetando el formato'}"

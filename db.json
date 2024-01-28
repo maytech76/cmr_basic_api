@@ -1,49 +1,67 @@
 {
-    "clientes":[
-        {
-            "id": 1,
-            "nombre": "marco antonio",
-            "apellidos": "yanez yanez",
-            "email": "staroffic@gmail.com",
-            "telefono": "950566018",
-            "empresa": "autosol",
-            "puesto": "chofer"
-        },
-        {
-            "id": 2,
-            "nombre": "juan carlos",
-            "apellidos": "yanez fernandez",
-            "email": "juancarlo@gmail.com",
-            "telefono": "950566019",
-            "empresa": "autosol",
-            "puesto": "chofer"
-        },
-        {
-            "id": 3,
-            "nombre": "luis fernando",
-            "apellidos": "yanez gonzales",
-            "email": "gonzaleslf@gmail.com",
-            "telefono": "950566020",
-            "empresa": "autosol",
-            "puesto": "chofer"
-        },
-        {
-            "id": 4,
-            "nombre": "maria angelica",
-            "apellidos": "suarez teran",
-            "email": "teranmar@gmail.com",
-            "telefono": "950566024",
-            "empresa": "autosol",
-            "puesto": "administradora"
-        },
-        {
-            "id": 5,
-            "nombre": "luis enrique",
-            "apellidos": "sola valencia",
-            "email": "construsol@gmail.com",
-            "telefono": "950561234",
-            "empresa": "autosol",
-            "puesto": "gerente"
-        }
-    ]
+  "clientes": [
+    {
+      "id": "1",
+      "nombre": "marco antonio",
+      "apellidos": "yanez yanez",
+      "email": "staroffic@gmail.com",
+      "telefono": "950566018",
+      "empresa": "autosol",
+      "puesto": "chofer"
+    },
+    {
+      "id": "2",
+      "nombre": "juan carlos",
+      "apellidos": "yanez fernandez",
+      "email": "juancarlo@gmail.com",
+      "telefono": "950566019",
+      "empresa": "autosol",
+      "puesto": "chofer"
+    },
+    {
+      "id": "3",
+      "nombre": "luis fernando",
+      "apellidos": "yanez gonzales",
+      "email": "gonzaleslf@gmail.com",
+      "telefono": "950566020",
+      "empresa": "autosol",
+      "puesto": "chofer"
+    },
+    {
+      "id": "4",
+      "nombre": "maria angelica",
+      "apellidos": "suarez teran",
+      "email": "teranmar@gmail.com",
+      "telefono": "950566024",
+      "empresa": "autosol",
+      "puesto": "administradora"
+    },
+    {
+      "id": "5",
+      "nombre": "luis enrique",
+      "apellidos": "sola valencia",
+      "email": "construsol@gmail.com",
+      "telefono": "950561234",
+      "empresa": "autosol",
+      "puesto": "gerente"
+    },
+    {
+      "id": "14ca",
+      "nombre": "alejandra",
+      "apellidos": "montoya",
+      "email": "alemont@gmail.com",
+      "telefono": "940-7863-21",
+      "empresa": "motorace",
+      "puesto": "cajera"
+    },
+    {
+      "id": "c8a3",
+      "nombre": "jose antonio",
+      "apellidos": "castillo",
+      "email": "castillojose@hotmail.com",
+      "telefono": "952-1258-14",
+      "empresa": "petrobras",
+      "puesto": "supervisor"
+    }
+  ]
 }

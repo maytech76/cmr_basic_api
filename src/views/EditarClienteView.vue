@@ -1,12 +1,39 @@
 <script setup>
+import {onMounted, reactive}from 'vue'
 import ClienteService from '@/services/ClienteService'
 import{FormKit} from '@formkit/vue'
-import {useRouter} from 'vue-router'
+import {useRouter, useRoute} from 'vue-router'
 import RouterLink from '../components/UI/RouterLink.vue'
 import Heading from '../components/UI/Heading.vue'
 
 
 const router = useRouter()
+const route = useRoute()
+
+const {id} = route.params
+
+const formData = reactive({
+    nombre:'',
+    apellidos:'',
+    email:'',
+    telefono:'',
+    empresa:'',
+    puesto:''
+
+})
+
+onMounted(()=>{
+    ClienteService.mostrarCliente(id)
+    .then(({data})=>{
+       formData.nombre = data.nombre
+       formData.apellidos = data.apellidos
+       formData.email = data.email
+       formData.telefono = data.telefono
+       formData.empresa = data.empresa
+       formData.puesto = data.puesto
+    })
+    .catch(error => console.log(error))
+})
 
 defineProps ({
     titulo: {
@@ -15,15 +42,13 @@ defineProps ({
 })
 
 const handleSubmit = (data)=>{
-    data.estado = 1
-   ClienteService.insertarCliente(data)
-    .then(respuesta =>{
-        console.log(respuesta)
-        //al registrar redirecionamos
-        router.push({name: 'listado-clientes'})
 
-    })
-    .catch(error =>console.log(error))
+   ClienteService.editarCliente(id, data)
+
+   .then(()=> router.push({name: 'listado-clientes'}))
+
+   .catch(error => console.log(error))
+    
 }
 </script>
 
@@ -38,18 +63,20 @@ const handleSubmit = (data)=>{
     <div class="mx-auto mt-10 bg-white shadow">
         <div class="mx-auto md:2/5 py-10 px-7">
 
-            <FormKit type="form" submit-label="Regitrar"
+            <FormKit type="form" submit-label="Editar Registro"
             incomplete-message="Imposible registrar, revisa los mensajes y formatos"
             @submit="handleSubmit"
+            @value="formData"
             >
 
                     <FormKit
                     label="Nombre"
-                    type="text"
+                    type="text" 
                     name="nombre"
                     placeholder="Ingresa el nombre del cliente"
                     validation="required"
                     :validation-messages="{required: 'El Nombre del cliente es Obligatorio'}"
+                    v-model="formData.nombre"
 
                     />
 
@@ -60,6 +87,7 @@ const handleSubmit = (data)=>{
                     placeholder="Ingresa el nombre del cliente"
                     validation="required"
                     :validation-messages="{required: 'Los Apellidos del cliente es Obligatorio'}"
+                    v-model="formData.apellidos"
 
                     />
 
@@ -71,6 +99,7 @@ const handleSubmit = (data)=>{
                     help="Ejemplo: correo@servidor.com"
                     validation="required|email"
                     :validation-messages="{required: 'El Email del cliente es Obligatorio', email: 'Ingresa un email Valido'}"
+                    v-model="formData.email"
 
                     />
 
@@ -82,6 +111,7 @@ const handleSubmit = (data)=>{
                     help="Ejemplo: 950-5051-00"
                     validation="*matches:/^[0-9]{3}-[0-9]{4}-[0-9]{2}$/"
                     :validation-messages="{matches: 'Ingrese numero respetando el formato'}"
+                    v-model="formData.telefono"
 
                     />
 
@@ -90,6 +120,7 @@ const handleSubmit = (data)=>{
                     type="text"
                     name="empresa"
                     placeholder="Ingresa Nombre de la empresa"
+                    v-model="formData.empresa"
                     />
 
                     <FormKit
@@ -97,6 +128,7 @@ const handleSubmit = (data)=>{
                     type="text"
                     name="puesto"
                     placeholder="¿Cuel es su puesto de trabajo?"
+                    v-model="formData.puesto"
                     />
 
 

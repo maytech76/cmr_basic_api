@@ -1,13 +1,14 @@
 {
   "clientes": [
     {
-      "id": "1",
       "nombre": "marco antonio",
-      "apellidos": "yanez yanez",
+      "apellidos": "Yanez Lopez",
       "email": "staroffic@gmail.com",
-      "telefono": "950566018",
-      "empresa": "autosol",
-      "puesto": "chofer"
+      "telefono": "950-5660-18",
+      "empresa": "Maytech",
+      "puesto": "Desarrollo",
+      "id": "1",
+      "estado": true
     },
     {
       "id": "2",
@@ -16,7 +17,8 @@
       "email": "juancarlo@gmail.com",
       "telefono": "950566019",
       "empresa": "autosol",
-      "puesto": "chofer"
+      "puesto": "contador",
+      "estado": true
     },
     {
       "id": "3",
@@ -25,7 +27,8 @@
       "email": "gonzaleslf@gmail.com",
       "telefono": "950566020",
       "empresa": "autosol",
-      "puesto": "chofer"
+      "puesto": "mecanico",
+      "estado": 1
     },
     {
       "id": "4",
@@ -34,7 +37,8 @@
       "email": "teranmar@gmail.com",
       "telefono": "950566024",
       "empresa": "autosol",
-      "puesto": "administradora"
+      "puesto": "administradora",
+      "estado": true
     },
     {
       "id": "5",
@@ -43,25 +47,18 @@
       "email": "construsol@gmail.com",
       "telefono": "950561234",
       "empresa": "autosol",
-      "puesto": "gerente"
+      "puesto": "gerente",
+      "estado": false
     },
     {
       "id": "14ca",
       "nombre": "alejandra",
-      "apellidos": "montoya",
+      "apellidos": "Montoya",
       "email": "alemont@gmail.com",
       "telefono": "940-7863-21",
-      "empresa": "motorace",
-      "puesto": "cajera"
-    },
-    {
-      "id": "c8a3",
-      "nombre": "jose antonio",
-      "apellidos": "castillo",
-      "email": "castillojose@hotmail.com",
-      "telefono": "952-1258-14",
-      "empresa": "petrobras",
-      "puesto": "supervisor"
+      "empresa": "Maytech",
+      "puesto": "Administrador",
+      "estado": false
     }
   ]
 }

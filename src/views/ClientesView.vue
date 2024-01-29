@@ -1,7 +1,7 @@
 <script setup>
 //importamos el componente que nos permite navegar entra las diferentes paginas
 import {onMounted, ref, computed} from 'vue'
-import axios from 'axios'
+import ClienteService from '../services/ClienteService'
 import RouterLink from '../components/UI/RouterLink.vue'
 import Heading from '../components/UI/Heading.vue'
 import Cliente from '../components/cliente.vue'
@@ -10,7 +10,7 @@ import Cliente from '../components/cliente.vue'
 const clientes = ref([])
 
 onMounted(() =>{
-    axios.get('http://localhost:4000/clientes')
+    ClienteService.listarClientes()
     .then(({data}) => clientes.value = data)
     .catch(error => console.log('Error al realizar consulta'))
 })
@@ -24,6 +24,27 @@ defineProps ({
 const existenClientes = computed(() => {
     return clientes.value.length > 0
 })
+
+
+const actualizandoEstado = ({id, estado}) =>{
+   ClienteService.cambiarEstado(id, {estado: !estado})
+    .then(() =>{
+
+        const i = clientes.value.findIndex(cliente =>cliente.id === id)
+        clientes.value[i].estado = !estado
+
+    })
+   .catch(error => console.log(error))
+}
+
+const eliminarCliente = id =>{
+    ClienteService.eliminarCliente(id)
+    .then(()=>{
+        /* filtar el valor de listado de clientes que sean diferentes a id que se recibe */ 
+       clientes.value = clientes.value.filter(cliente => cliente.id !== id)
+    })
+    .catch(error =>console.log(error))
+}
 
 
 </script>
@@ -52,6 +73,9 @@ const existenClientes = computed(() => {
                                 v-for="cliente in clientes"
                                 :key="cliente.id"
                                 :cliente="cliente"
+                                @actualizar-estado="actualizandoEstado"
+                                @eliminar-cliente ="eliminarCliente"
+
                             />
                         </tbody>
                     </table>
